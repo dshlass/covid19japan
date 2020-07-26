@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -16,42 +17,31 @@
 
   <!-- iOS icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png?v=1586005472">
-  
+
   <!-- MacOS Icon for Safari & Touchbar -->
   <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg?v=1586005472" color="#8ecafb">
-  
+
   <!-- Android Manifest -->
   <link rel="manifest" href="/static/icons/site.webmanifest?v=1586005472">
-  
+
   <!-- Windows Browserconfig -->
   <meta name="msapplication-TileColor" content="#8ecafb">
   <meta name="msapplication-config" content="/static/icons/browserconfig.xml?v=1586005472">
   <meta name="theme-color" content="#8ecafb">
 
-  <meta
-    name="description"
-    content="Live updates of the Coronavirus COVID-19 outbreak in Japan"
-  />
+  <meta name="description" content="Live updates of the Coronavirus COVID-19 outbreak in Japan" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://covid19japan.com/" />
   <meta name="twitter:title" content="Japan COVID-19 Coronavirus Tracker" />
 
-  <meta
-    name="twitter:description"
-    content="Live updates of the Coronavirus COVID-19 outbreak in Japan"
-  />
+  <meta name="twitter:description" content="Live updates of the Coronavirus COVID-19 outbreak in Japan" />
   <meta property="og:title" content="Japan COVID-19 Coronavirus Tracker" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://covid19japan.com/" />
-  <meta
-    property="og:image"
-    content="https://covid19japan.com/static/map.jpg"
-  />
-  <meta
-    property="og:description"
-    content="Live updates of the Coronavirus COVID-19 outbreak in Japan"
-  />
+  <meta property="og:image" content="https://covid19japan.com/static/map.jpg" />
+  <meta property="og:description" content="Live updates of the Coronavirus COVID-19 outbreak in Japan" />
 </head>
+
 <body class="<%= htmlWebpackPlugin.options.bodyClass %>">
   <div id="page">
     <header class="embed-hide">
@@ -67,11 +57,13 @@
         </div>
       </div>
     </header>
-  
+
     <section id="kpi" class="loading">
       <div class="kpi-box" id="kpi-confirmed">
         <div class="label" data-i18n="kpi-confirmed">Confirmed</div>
-        <div class="value"><div class="lds-dual-ring"></div></div>
+        <div class="value">
+          <div class="lds-dual-ring"></div>
+        </div>
         <div class="diff">&nbsp;</div>
         <div class="description"></div>
         <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -84,11 +76,13 @@
         <div class="chart" id="kpi-confirmed-chart"></div>
         <div class="chart-caption" data-i18n="confirmed-chart-caption">Confirmed cases per day</div>
       </div>
-  
-  
+
+
       <div class="kpi-box" id="kpi-recovered">
         <div class="label" data-i18n="kpi-recovered">Recovered</div>
-        <div class="value"><div class="lds-dual-ring"></div></div>
+        <div class="value">
+          <div class="lds-dual-ring"></div>
+        </div>
         <div class="diff">&nbsp;</div>
         <div class="description"></div>
         <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -104,7 +98,9 @@
 
       <div class="kpi-box" id="kpi-critical">
         <div class="label" data-i18n="kpi-critical">Critical</div>
-        <div class="value"><div class="lds-dual-ring"></div></div>
+        <div class="value">
+          <div class="lds-dual-ring"></div>
+        </div>
         <div class="diff">&nbsp;</div>
         <div class="description"></div>
         <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -120,7 +116,9 @@
 
       <div class="kpi-box" id="kpi-deceased">
         <div class="label" data-i18n="kpi-deceased">Deaths</div>
-        <div class="value"><div class="lds-dual-ring"></div></div>
+        <div class="value">
+          <div class="lds-dual-ring"></div>
+        </div>
         <div class="diff">&nbsp;</div>
         <div class="description"></div>
         <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -134,9 +132,11 @@
         <div class="chart-caption" data-i18n="deceased-chart-caption">Deaths per day</div>
       </div>
 
-      <div class="kpi-box" id="kpi-active" data-tippy-i18n="kpi-active-tooltip" data-tippy-placement="bottom" >
-        <div class="label"><span data-i18n="kpi-active">Active</span> &#9432;</div>     
-        <div class="value"><div class="lds-dual-ring"></div></div>
+      <div class="kpi-box" id="kpi-active" data-tippy-i18n="kpi-active-tooltip" data-tippy-placement="bottom">
+        <div class="label"><span data-i18n="kpi-active">Active</span> &#9432;</div>
+        <div class="value">
+          <div class="lds-dual-ring"></div>
+        </div>
         <div class="diff">&nbsp;</div>
         <div class="description"></div>
         <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -149,13 +149,15 @@
         <div class="chart" id="kpi-active-chart"></div>
         <div class="chart-caption" data-i18n="active-chart-caption">Active cases per day</div>
       </div>
-    
+
       <div class="kpi-box" id="kpi-tested">
         <div class="vitals">
           <div class="label" data-i18n="kpi-tested">Tested</div>
-          <div class="value"><div class="lds-dual-ring"></div></div>
+          <div class="value">
+            <div class="lds-dual-ring"></div>
+          </div>
           <div class="diff">&nbsp;</div>
-          <div class="description"></div>  
+          <div class="description"></div>
         </div>
         <div class="chart-container">
           <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -166,13 +168,15 @@
             </linearGradient>
           </svg>
           <div class="chart" id="kpi-tested-chart"></div>
-          <div class="chart-caption" data-i18n="tested-chart-caption">Tests per day</div>  
+          <div class="chart-caption" data-i18n="tested-chart-caption">Tests per day</div>
         </div>
       </div>
 
       <div class="kpi-box" id="kpi-critical-short">
         <div class="label" data-i18n="kpi-critical">Critical</div>
-        <div class="value"><div class="lds-dual-ring"></div></div>
+        <div class="value">
+          <div class="lds-dual-ring"></div>
+        </div>
         <div class="diff">&nbsp;</div>
         <div class="description"></div>
       </div>
@@ -183,37 +187,45 @@
         <h4 data-i18n="outbreak-spread-trend">Total Cases</h4>
         <div id="trend-chart-box">
           <div id="trend-chart">
-              <div class="loader"><div class="lds-dual-ring"></div></div>
+            <div class="loader">
+              <div class="lds-dual-ring"></div>
+            </div>
           </div>
         </div>
       </section>
-    
+
       <section id="daily-increase-container" class="embed-hide">
         <h4 data-i18n="new-cases-by-day">Daily Confirmed Cases</h4>
         <div id="daily-increase-chart-box">
           <div id="daily-increase-chart">
-            <div class="loader"><div class="lds-dual-ring"></div></div>
+            <div class="loader">
+              <div class="lds-dual-ring"></div>
+            </div>
           </div>
         </div>
       </section>
     </section>
 
     <section id="prefecture-sections">
-      <section id="prefecture-map-container">       
-        <a name="map"><h4><span data-i18n="covid-19" class="embed-show">COVID-19</span> <span data-i18n="outbreak-map">Outbreak Map</span></h4></a>
+      <section id="prefecture-map-container">
+        <a name="map">
+          <h4><span data-i18n="covid-19" class="embed-show">COVID-19</span> <span data-i18n="outbreak-map">Outbreak
+              Map</span></h4>
+        </a>
         <div id="prefecture-map-contents">
           <div id="map-container"></div>
-          <p class="embed-show footnote">powered by <a href="https://covid19japan.com" target="_blank">COVID19Japan.com</a></p>
+          <p class="embed-show footnote">powered by <a href="https://covid19japan.com"
+              target="_blank">COVID19Japan.com</a></p>
           <div id="map-legend"></div>
         </div>
-      </section>    
+      </section>
 
       <section id="prefecture-top-table-container" class="embed-hide">
         <h4 data-i18n="active-regions">Most Active Regions</h4>
       </section>
     </section>
-    
-  
+
+
     <section id="regional-charts-container" class="embed-hide">
 
       <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
@@ -230,20 +242,29 @@
       <h4 data-i18n="confirmed-case-trajectories-by-region">Confirmed Case Trajectories by Region</h4>
       <div id="regional-trajectory-chart-box">
         <div id="regional-trajectory">
-          <div class="loader"><div class="lds-dual-ring"></div></div>
+          <div class="loader">
+            <div class="lds-dual-ring"></div>
+          </div>
         </div>
       </div>
     </section>
-  
+
     <section id="travel-restrictions" class="embed-hide">
       <h4 data-i18n="traveling-into-japan">Traveling into Japan</h4>
-      <p data-i18n="about-travel-restriction">Below are the travel restrictions that have been put in place regarding traveling into Japan.
+      <p data-i18n="about-travel-restriction">Below are the travel restrictions that have been put in place regarding
+        traveling into Japan.
         Click on the link for more details on the restrictions.</p>
-      <h5 data-i18n="banned-from-entering-japan" id="banned-entry-title">Banned from entering Japan:</h5><span id="banned-entry"></span>
-      <h5 data-i18n="existing-visa-required" id="visa-required-title">Existing visa required:</h5><span id="visa-required"></span>
-      <h5 data-i18n="14-day-self-quarantine-required" id="self-quarantine-title">14-day Self-Quarantine required:</h5><span id="self-quarantine"></span>
-      <h5 data-i18n="other-limitations" id="other-restrictions-title">Other limitations:</h5><span id="other-restrictions"></span>
-  
+      <div id="travel-restrictions-filter">
+      </div>
+      <h5 data-i18n="banned-from-entering-japan" id="banned-entry-title">Banned from entering Japan:</h5><span
+        id="banned-entry"></span>
+      <h5 data-i18n="existing-visa-required" id="visa-required-title">Existing visa required:</h5><span
+        id="visa-required"></span>
+      <h5 data-i18n="14-day-self-quarantine-required" id="self-quarantine-title">14-day Self-Quarantine required:</h5>
+      <span id="self-quarantine"></span>
+      <h5 data-i18n="other-limitations" id="other-restrictions-title">Other limitations:</h5><span
+        id="other-restrictions"></span>
+
       <!--<h4>Traveling out of Japan</h4>
       <p>Below are the travel restrictions that have been put in place regarding traveling from Japan into
         foreign countries. Click on the link for more details on the restrictions.</p>
@@ -252,7 +273,7 @@
       <h5>14-day Self-Quarantine Required:</h5><span id="foreign-self-quarantine"></span>
       <h5>Other Limitations:</h5><span id="foreign-other-restrictions"></span>-->
     </section>
-  
+
     <section id="helpful-links" class="embed-hide">
       <a name="links">
         <h4 data-i18n="helpful-links">Helpful Links</h4>
@@ -274,7 +295,8 @@
           </a>
         </li>
         <li>
-          <a href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/tagengoguide.files/tagengogaido2019-mihiraki.pdf">
+          <a
+            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/tagengoguide.files/tagengogaido2019-mihiraki.pdf">
             Monitoring your symptoms if you feel ill
           </a>
         </li>
@@ -284,7 +306,9 @@
           </a>
         </li>
         <li>
-          English language news sources: <a href="https://www.japantimes.co.jp/">Japan Times</a>, <a href="https://english.kyodonews.net/">Kyodo News</a>, <a href="http://www.asahi.com/ajw/">Asahi Shimbun</a>, <a href="https://mainichi.jp/english/">Mainichi Shimbun</a>
+          English language news sources: <a href="https://www.japantimes.co.jp/">Japan Times</a>, <a
+            href="https://english.kyodonews.net/">Kyodo News</a>, <a href="http://www.asahi.com/ajw/">Asahi Shimbun</a>,
+          <a href="https://mainichi.jp/english/">Mainichi Shimbun</a>
         </li>
       </ul>
     </section>
@@ -292,7 +316,8 @@
   <div id="footer-container">
     <footer>
       <p>
-        Built by <a href="https://twitter.com/reustle" target="_blank">Shane Reustle</a> and many more code and data contributors.
+        Built by <a href="https://twitter.com/reustle" target="_blank">Shane Reustle</a> and many more code and data
+        contributors.
       </p>
       <p>
         <a href="https://twitter.com/reustle" title="Shane Reustle" target="_blank" class="avatar">
@@ -322,13 +347,18 @@
         <a href="https://twitter.com/vlumi" title="Ville Misaki" target="_blank" class="avatar">
           <img src="/static/avatars/vlumi.jpg" alt="Ville Misaki">
         </a>
-        <a href="https://github.com/reustle/covid19japan/graphs/contributors" title="Other Contributors" target="_blank" class="avatar">
-          <img src="https://ui-avatars.com/api/?background=1876D3&size=80&bold=true&color=fff&name=%2B" alt="Other Contributors">
+        <a href="https://github.com/reustle/covid19japan/graphs/contributors" title="Other Contributors" target="_blank"
+          class="avatar">
+          <img src="https://ui-avatars.com/api/?background=1876D3&size=80&bold=true&color=fff&name=%2B"
+            alt="Other Contributors">
         </a>
       </p>
       <p>
-        Supported by <a href="https://reustle.co" target="_blank">Reustle K.K.</a>, <a href="https://mapbox.com/community/" target="_blank">Mapbox</a>, <a href="https://sentry.io" target="_blank">Sentry.io</a>, and <a href="https://netlify.com/" target="_blank">Netlify</a>.
-        Data sourced from Prefectural Governments and MHLW (<a href="https://github.com/reustle/covid19japan-data/">Full Details</a>.)
+        Supported by <a href="https://reustle.co" target="_blank">Reustle K.K.</a>, <a
+          href="https://mapbox.com/community/" target="_blank">Mapbox</a>, <a href="https://sentry.io"
+          target="_blank">Sentry.io</a>, and <a href="https://netlify.com/" target="_blank">Netlify</a>.
+        Data sourced from Prefectural Governments and MHLW (<a href="https://github.com/reustle/covid19japan-data/">Full
+          Details</a>.)
       </p>
       <p>
         Contribute to <a href="https://github.com/reustle/covid19japan">covid19japan on GitHub</a>
@@ -336,7 +366,9 @@
     </footer>
   </div>
   <!-- JS -->
-  <script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js" integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3" crossorigin="anonymous"></script>
+  <script src="https://browser.sentry-cdn.com/5.12.1/bundle.min.js"
+    integrity="sha384-y+an4eARFKvjzOivf/Z7JtMJhaN6b+lLQ5oFbBbUwZNNVir39cYtkjW1r6Xjbxg3"
+    crossorigin="anonymous"></script>
   <script src="https://browser.sentry-cdn.com/5.12.1/captureconsole.min.js"></script>
   <script>
     if (window.location.hostname == 'covid19japan.com') {
@@ -348,7 +380,7 @@
           /extensions\//i,
           /^chrome:\/\//i,
         ],
-              ignoreErrors: [
+        ignoreErrors: [
           // Ignore Google Translate Chrome extension errors.
           // See: https://medium.com/@amir.harel/a-b-target-classname-indexof-is-not-a-function-at-least-not-mine-8e52f7be64ca
           "a[b].target.className.indexOf is not a function",
@@ -360,16 +392,17 @@
         ]
       })
     }
-  </script>  
+  </script>
   <script async src="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js"></script>
   <link href="https://api.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css" rel="stylesheet" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2580539-41"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-2580539-41');
   </script>
 
 </body>
+
 </html>
