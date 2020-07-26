@@ -45,15 +45,106 @@ const localizeCountryNames = (countries) => {
  * @param {array} countries
  * @returns The list of countries as HTML.
  */
-const createCountryList = (countries) => {
+const createCountryList = (countries, titleId) => {
   return countries
     .sort((a, b) => a["name"].localeCompare(b["name"], i18next.language))
     .map((country) => {
-      return `<a href="${country.link}" class="country-link">${parseEmoji(
-        country.emoji
-      )}${country.name}</a>`;
+      return `<a data-type=${titleId + "-" + country.name[0]} href="${
+        country.link
+      }" class="country-link">${parseEmoji(country.emoji)}${country.name}</a>`;
     })
-    .join(", ");
+    .join("  ");
+};
+
+/**
+ * Creates the filter list based on first letter of country name.
+ *
+ * @param {array} countries The countries to loaclize
+ */
+const createSortList = (countries, titleId, elementId) => {
+  const countryList = countries.sort((a, b) =>
+    a["name"].localeCompare(b["name"], i18next.language)
+  );
+  let letterArray = {};
+
+  countryList.forEach((country) => {
+    if (!letterArray[country.name[0]]) {
+      letterArray[country.name[0]] = [country];
+    } else if (letterArray[country.name[0]]) {
+      letterArray[country.name[0]].push(country);
+    }
+  });
+
+  const filterContainer = elementId;
+
+  const countryNodeArray = elementId.children;
+  const countryArray = Array.from(countryNodeArray);
+
+  const filterSelection = (e) => {
+    countryArray.forEach((country) => {
+      country.classList.remove("hidden");
+
+      if (
+        country.dataset &&
+        country.dataset.type !== `${titleId + "-" + e.currentTarget.value}`
+      ) {
+        country.classList.add("hidden");
+      }
+    });
+  };
+
+  const clearFilter = () => {
+    countryArray.forEach((country) => {
+      country.classList.remove("hidden");
+    });
+  };
+
+  const ul = document.createElement("ul");
+
+  const allInput = document.createElement("input");
+  allInput.classList.add("filter-input");
+  allInput.setAttribute("type", "radio");
+  allInput.setAttribute("id", `${titleId + "-" + "All"}`);
+  allInput.setAttribute("value", "All");
+  allInput.setAttribute("name", `${titleId + "-" + "countries-list"}`);
+  allInput.setAttribute("checked", "true");
+
+  allInput.addEventListener("change", () => clearFilter());
+
+  const allLabel = document.createElement("label");
+  allLabel.classList.add("filter-label");
+  allLabel.setAttribute("for", `${titleId + "-" + "All"}`);
+  allLabel.innerText = "All";
+
+  ul.appendChild(allInput);
+  ul.appendChild(allLabel);
+
+  Object.keys(letterArray).forEach((letter) => {
+    const letterInput = document.createElement("input");
+    letterInput.classList.add("filter-input");
+    letterInput.setAttribute("type", "radio");
+    letterInput.setAttribute("id", `${titleId + "-" + letter}`);
+    letterInput.setAttribute("value", letter);
+    letterInput.setAttribute("name", `${titleId + "-" + "countries-list"}`);
+
+    letterInput.addEventListener("change", (e) => filterSelection(e));
+
+    const letterLabel = document.createElement("label");
+    letterLabel.classList.add("filter-label");
+    letterLabel.setAttribute("for", `${titleId + "-" + letter}`);
+    letterLabel.innerText = letter;
+
+    const letterLi = document.createElement("li");
+
+    letterLi.appendChild(letterInput);
+    letterLi.appendChild(letterLabel);
+
+    ul.appendChild(letterLi);
+  });
+
+  ul.classList.add("filter-country");
+
+  filterContainer.prepend(ul);
 };
 
 /**
@@ -79,7 +170,10 @@ const populateTravelRestriction = (titleId, elementId, countries) => {
   }
 
   localizeCountryNames(countries);
-  banned.innerHTML = createCountryList(countries);
+  banned.innerHTML = createCountryList(countries, titleId);
+  if (countries.length > 50) {
+    createSortList(countries, titleId, banned);
+  }
 };
 
 export const drawTravelRestrictions = (ddb) => {
